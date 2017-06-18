@@ -1,0 +1,28 @@
+{
+  "name": "in-between",
+  "version": "1.0.0",
+  "description": "Test whether a number is between 2 other numbers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/jest/bin/jest.js"
+  },
+  "keywords": [
+    "between",
+    "in",
+    "range",
+    "number",
+    "num",
+    "test",
+    "middle",
+    "check",
+    "is"
+  ],
+  "author": {
+    "name": "Alvaro Bernal Gimeno", 
+    "email": "alvaro.bernal.gimeno@gmail.com"
+  },
+  "license": "M.I.T",
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}
