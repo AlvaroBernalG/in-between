@@ -38,6 +38,10 @@ describe('between()', ()=>{
 
     expect(isBetween1And10(target)).toBe(false)
 
+    target = 2.2
+
+    expect(isBetween1And10(target)).toBe(true)
+
     target = 343242
 
     expect(between(-Infinity, Infinity)(target)).toBe(true)
