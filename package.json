@@ -1,6 +1,6 @@
 {
   "name": "in-between",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Test whether a number or an alphabet character is between 2 others. ",
   "main": "index.js",
   "scripts": {
@@ -29,9 +29,5 @@
   "license": "M.I.T",
   "devDependencies": {
     "jest": "^20.0.4"
-  },
-  "dependencies": {
-    "compose-function": "^3.0.3",
-    "is-string": "^1.0.4"
   }
 }
