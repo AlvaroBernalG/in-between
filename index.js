@@ -1,3 +1,4 @@
+var check = require('check-types');
 
 const sameDataType = (...values) =>{
   let test = typeof values[0]
@@ -5,8 +6,6 @@ const sameDataType = (...values) =>{
 }
 
 const inNumRange = (start, end) => target => target >= start && target <= end
-
-const isString = target => typeof target === 'string' || target instanceof String
 
 const isChar = str => str.length === 1
 
@@ -25,15 +24,22 @@ const inCharRange = (start, end) => target =>{
   return inNumRange(start, end)(target)
 }
 
-module.exports = (start, end) => target =>{
+const between = (start, end) => target =>{
 
   if (sameDataType(start, end, target) === false) {
     throw new TypeError('All arguments should be of the same data type.')
   }
 
-  const numRange = inNumRange(start, end)
+  if( check.string(start)){
+    return  inCharRange(start, end)(target)
+  }
+  
+  if( check.number(start) || check.date(start)){
+   return inNumRange(start, end)(target)
+  }
 
-  const charRange = inCharRange(start, end)
-
-  return isString(start) ? charRange(target): numRange(target)
+  throw new TypeError()
 }   
+
+module.exports = between
+

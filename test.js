@@ -1,6 +1,6 @@
-
 const between = require('./index.js')
 
+const sleep  = ms => new Promise(res => setTimeout(res, ms))
 
 describe('between()', ()=>{
 
@@ -26,7 +26,7 @@ describe('between()', ()=>{
     
     expect(isBetween1And10(target)).toBe(true)
 
-    target = 1
+    target = 1 
     
     expect(isBetween1And10(target)).toBe(true)
 
@@ -42,18 +42,9 @@ describe('between()', ()=>{
 
     expect(isBetween1And10(target)).toBe(true)
 
-    target = 343242
-
-    expect(between(-Infinity, Infinity)(target)).toBe(true)
-
-    target = Infinity
-
-    expect(between(-Infinity, Infinity)(target)).toBe(true)
-
-
   })
 
-  test('should return true if target string is between ranges. ', ()=>{
+  test('should return true if target alphabet string is between ranges. ', ()=>{
 
     let target = 'd'
 
@@ -75,9 +66,37 @@ describe('between()', ()=>{
 
     expect(between('a', 'b')(target)).toBe(false)   
 
+    target = 'C'
+
+    expect(between('a', 'b')(target)).toBe(false)   
+
+    target = 'b'
+
+    expect(between('A', 'z')(target)).toBe(true)   
+
   })
 
-  test('should throw error if args is not a valid an alphabet character', ()=>{
+
+  test('should return true if target Date is between ranges', 
+    async ()=>{
+
+
+    let first = new Date()
+
+    await sleep(200)
+
+    let target = new Date()
+
+    await sleep(200)
+
+    let last = new Date()
+
+    expect(between(first, last)(target)).toBe(true)
+
+
+  })
+
+  test('should throw error if args are not a valid an alphabet character', ()=>{
 
       expect(()=>{
         between('#', '/')('%')
@@ -91,21 +110,26 @@ describe('between()', ()=>{
         between(1, 10)('sd')
       }).toThrow()
 
-      expect(()=>{
+      expect(()=>{ 
         between(1, '3')(32)
       }).toThrow()
 
   })
 
-  test('should throw error if args are not number or char', ()=>{
+  test('should throw error if args are not number, string or Date', 
+    ()=>{
 
       expect(()=>{
-        between('as', 'z')('s')
+        between(null, null)(null)
       }).toThrow()
 
       expect(()=>{
-        between('as', undefined)('s')
+        between(undefined, undefined)(undefined)
       }).toThrow()
 
+      expect(()=>{
+        between({}, {})({})
+      }).toThrow()
   })
+
 })
