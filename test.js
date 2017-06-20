@@ -27,7 +27,7 @@ describe('between()', ()=>{
     expect(isBetween1And10(target)).toBe(true)
 
     target = 1 
-    
+
     expect(isBetween1And10(target)).toBe(true)
 
     target = 11
@@ -78,20 +78,17 @@ describe('between()', ()=>{
 
 
   test('should return true if target Date is between ranges', 
-    async ()=>{
+    ()=>{
 
 
-    let first = new Date()
+    let myGraduation = new Date("October 13, 2014 11:13:00")
 
-    await sleep(200)
+    let myFirstJob =  new Date("September 1, 2015 11:13:00")
 
-    let target = new Date()
+    let myBirthday =  new Date("January 10, 2015 10:11:03")
 
-    await sleep(200)
 
-    let last = new Date()
-
-    expect(between(first, last)(target)).toBe(true)
+    expect(between(myGraduation, myFirstJob)(myBirthday)).toBe(true)   
 
 
   })

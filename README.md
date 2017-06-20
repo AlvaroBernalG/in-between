@@ -14,16 +14,14 @@ $ npm install in-between
 
 ## Usage
 
+With numbers: 
+
 ```js
 const between = require('in-between')
 
 const between1and10 = between(1, 10)
 
-const betweenAandZ = between('a', 'z')
-
 between1and10(10) //=> true
-
-betweenAandZ('b') //=> true
 
 between1and10(-1) //=> false
 
@@ -35,17 +33,33 @@ between(100, 200)(10) //=> false
 
 ```
 
-Works with Dates as well
+Works with alphabet characters: 
 
 ```js
 
-let first = new Date()
+const between = require('in-between')
 
-let target =  new Date()
+const betweenAandZ = between('a', 'd')
 
-let last =  new Date()
+betweenAandZ('b') //=> true
 
-between(first, last)(middle) //=> true
+betweenAandZ('z') //=> false
+
+```
+
+Works with Dates as well:
+
+```js
+
+const between = require('in-between')
+
+let myGraduation = new Date("October 13, 2014 11:13:00")
+
+let myFirstJob =  new Date("September 1, 2015 11:13:00")
+
+let myBirthDay =  new Date("January 10, 2015 10:11:03")
+
+between(myGraduation, myFirstJob)(myBirthDay) //=> true
 
 ```
 
