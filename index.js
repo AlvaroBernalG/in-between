@@ -1,21 +1,19 @@
-var check = require('check-types');
+const check = require('check-types');
 
 const sameDataType = (...values) =>{
-  let test = typeof values[0]
+  const test = typeof values[0]
   return values.every(e => typeof e === test)
 }
 
 const inNumRange = (start, end) => target => target >= start && target <= end
 
-const isChar = str => str.length === 1
-
 const isValidAlphabetChar = char => !!char.match('[a-z]|[A-Z]')
 
 const inCharRange = (start, end) => target =>{
 
-  let values = [start, end, target] 
+  const values = [start, end, target] 
 
-  if (values.every(isChar) === false || 
+  if (values.every(e => e.length === 1) === false || 
       values.every(isValidAlphabetChar) === false ){
 
     throw new TypeError('Not a valid character.')
