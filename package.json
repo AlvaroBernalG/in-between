@@ -1,8 +1,13 @@
 {
   "name": "in-between",
-  "version": "1.3.5",
+  "version": "1.4.0",
   "description": "Test whether a number or an alphabet character is between 2 others. ",
   "main": "index.js",
+  "homepage": "https://github.com/alvarobernalg/in-between.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alvarobernalg/in-between.git"
+  },
   "scripts": {
     "test": "./node_modules/jest/bin/jest.js"
   },
