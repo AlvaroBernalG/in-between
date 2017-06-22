@@ -1,6 +1,6 @@
 # in-between 
 
-> Test whether a number, alphabet character or a date is between 2 others. 
+> Test whether a number, english  alphabet character or a date is between 2 others. 
 
 [![Build Status](https://travis-ci.org/AlvaroBernalG/in-between.svg?branch=master)](https://travis-ci.org/AlvaroBernalG/in-between) [![npm version](https://badge.fury.io/js/in-between.svg)](https://badge.fury.io/js/in-between)
 
@@ -21,15 +21,15 @@ const between = require('in-between')
 
 const between1and10 = between(1, 10)
 
-between1and10(10) //=> true
+between1and10(10) //=> false
 
-between1and10(-1) //=> false
+between1and10(3) //=> true
 
 betweenAandZ('*') //=> throws error
 
-between1and10(1) //=> true
+between1and10(1) //=> false
 
-between(100, 200)(10) //=> false
+between(100, 200)(101) //=> true
 
 ```
 
@@ -39,11 +39,11 @@ Works with alphabet characters:
 
 const between = require('in-between')
 
-const betweenAandZ = between('a', 'd')
+const betweenAandD = between('a', 'd')
 
-betweenAandZ('b') //=> true
+betweenAandD('b') //=> true
 
-betweenAandZ('z') //=> false
+betweenAandD('z') //=> false
 
 ```
 
