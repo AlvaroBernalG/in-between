@@ -24,11 +24,11 @@ describe('between()', ()=>{
 
     target = 10
     
-    expect(isBetween1And10(target)).toBe(true)
+    expect(isBetween1And10(target)).toBe(false)
 
     target = 1 
 
-    expect(isBetween1And10(target)).toBe(true)
+    expect(isBetween1And10(target)).toBe(false)
 
     target = 11
     
@@ -52,11 +52,11 @@ describe('between()', ()=>{
 
     target = 'a'
 
-    expect(between('a', 'z')(target)).toBe(true)   
+    expect(between('a', 'z')(target)).toBe(false)   
 
     target = 'z'
 
-    expect(between('a', 'z')(target)).toBe(true)   
+    expect(between('a', 'z')(target)).toBe(false)   
 
     target = 'z'
 

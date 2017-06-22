@@ -22,7 +22,7 @@ const all = (...validation) => (target)=> validation.reduce((prev,next) => prev 
 
 const or = (first, second) => (target)=> first(target) || second(target)
 
-const inRange = (start, end, target) => target >= start && target <= end
+const inRange = (start, end, target) => target > start && target < end
 
 const between = (start, end) => (target) =>{
 
