@@ -1,6 +1,9 @@
 const validAlphabetCharacters = '[a-z]|[A-Z]'
 
-const check = {
+const is = {
+  alphabetCharacter(target){
+    return !!target.match(validAlphabetCharacters)
+  },
   string(target){
     return target instanceof String || typeof target === 'string'
   },
@@ -9,44 +12,32 @@ const check = {
   },
   date(target){
     return target instanceof Date
+  },
+  singleChar(target){
+    return target.length === 1
   }
 }
 
-const sameDataType = (...values) =>{
-  const test = typeof values[0]
-  return values.every(e => typeof e === test)
-}
+const all = (...validation) => (target)=> validation.reduce((prev,next) => prev && next(target) , validation[0](target))
 
+const or = (first, second) => (target)=> first(target) || second(target)
 
-const inNumRange = (start, end) => target => target >= start && target <= end
+const inRange = (start, end, target) => target >= start && target <= end
 
-const isValidAlphabetChar = char => !!char.match(validAlphabetCharacters)
+const between = (start, end) => (target) =>{
 
-const inCharRange = (start, end) => target =>{
+  const args = [start, end, target]
 
-  const values = [start, end, target] 
+  const string_alphabet_singleChar = all(is.string, is.alphabetCharacter, is.singleChar )
 
-  if (values.every(e => e.length === 1) === false || 
-      values.every(isValidAlphabetChar) === false ){
-
-    throw new TypeError('Not a valid character.')
+  if(args.every(string_alphabet_singleChar)){
+     return inRange(start, end, target)
   }
 
-  return inNumRange(start, end)(target)
-}
+  const dateOrNumber = or(is.date, is.number)
 
-const between = (start, end) => target =>{
-
-  if (sameDataType(start, end, target) === false) {
-    throw new TypeError('All arguments should be of the same data type.')
-  }
-
-  if(check.string(start)){
-    return inCharRange(start, end)(target)
-  }
-  
-  if(check.number(start) || check.date(start)){
-   return inNumRange(start, end)(target)
+  if(args.every(dateOrNumber)){
+    return inRange(start, end, target)
   }
 
   throw new TypeError()

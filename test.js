@@ -111,6 +111,11 @@ describe('between()', ()=>{
         between(1, '3')(32)
       }).toThrow()
 
+     expect(()=>{
+        between(new Date(), '')('sd')
+      }).toThrow()
+
+
   })
 
   test('should throw error if args are not number, string or Date', 
