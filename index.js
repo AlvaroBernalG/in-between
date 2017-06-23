@@ -1,3 +1,5 @@
+const { or, every } = require('logical-operators') 
+
 const validAlphabetCharacters = '[a-z]|[A-Z]'
 
 const is = {
@@ -18,17 +20,13 @@ const is = {
   }
 }
 
-const all = (...validation) => (target)=> validation.reduce((prev,next) => prev && next(target) , validation[0](target))
-
-const or = (first, second) => (target)=> first(target) || second(target)
-
 const inRange = (start, end, target) => target > start && target < end
 
 const between = (start, end) => (target) =>{
 
   const args = [start, end, target]
 
-  const string_alphabet_singleChar = all(is.string, is.alphabetCharacter, is.singleChar )
+  const string_alphabet_singleChar = every(is.string, is.alphabetCharacter, is.singleChar )
 
   if(args.every(string_alphabet_singleChar)){
      return inRange(start, end, target)
