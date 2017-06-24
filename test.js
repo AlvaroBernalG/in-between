@@ -42,6 +42,11 @@ describe('between()', ()=>{
 
     expect(isBetween1And10(target)).toBe(true)
 
+    target = 2
+
+    expect(between(-Infinity, Infinity)(target)).toBe(true)
+
+
   })
 
   test('should return true if target alphabet string is between ranges. ', ()=>{
@@ -99,6 +104,9 @@ describe('between()', ()=>{
         between('#', '/')('%')
       }).toThrow()
 
+      expect(()=>{
+        between('💩' , '💩')('💩')
+      }).toThrow()
   })
 
   test('should throw error if args are not of the same type', ()=>{
@@ -114,7 +122,10 @@ describe('between()', ()=>{
      expect(()=>{
         between(new Date(), '')('sd')
       }).toThrow()
-
+   
+      expect(()=>{
+        between(-Infinity , '💩')('💩')
+      }).toThrow()
 
   })
 
@@ -132,6 +143,9 @@ describe('between()', ()=>{
       expect(()=>{
         between({}, {})({})
       }).toThrow()
+
+
+
   })
 
 })
