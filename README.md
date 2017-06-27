@@ -67,9 +67,9 @@ You can also include boundaries:
 
 const between = require('in-between')
 
-expect(between(3, 4, true)(3)).toBe(true) //=> true
+between(3, 4, true)(3) //=> true
 
-expect(between('a', 'b', true)('a')).toBe(true) // => true
+between('a', 'b', true)('a') // => true
 
 
 ```
