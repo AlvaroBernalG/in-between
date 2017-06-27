@@ -5,15 +5,13 @@
 [![Build Status](https://travis-ci.org/AlvaroBernalG/in-between.svg?branch=master)](https://travis-ci.org/AlvaroBernalG/in-between) [![npm version](https://badge.fury.io/js/in-between.svg)](https://badge.fury.io/js/in-between) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 Augmented version of [in-range](https://github.com/sindresorhus/in-range) made by [Sindre Sorhus](https://sindresorhus.com) with a more functional taste. 
-
 ## Install
 ```
 $ npm install in-between
 ```
 
 
-## Usage
-
+## Usage 
 With numbers: 
 
 ```js
@@ -62,6 +60,22 @@ let myBirthDay =  new Date("January 10, 2015 10:11:03")
 between(myGraduation, myFirstJob)(myBirthDay) //=> true
 
 ```
+
+You can also include boundaries:
+
+```js
+
+const between = require('in-between')
+
+expect(between(3, 4, true)(3)).toBe(true) //=> true
+
+expect(between('a', 'b', true)('a')).toBe(true) // => true
+
+
+```
+
+
+
 
 
 ## License

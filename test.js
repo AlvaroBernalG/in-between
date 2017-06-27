@@ -39,7 +39,15 @@ describe('between()', () => {
       target = 2
 
       expect(between(-Infinity, Infinity)(target)).toBe(true)
+
+      expect(between(3, 4, true)(4)).toBe(true)
     })
+
+  test('should return true if target number is one of the boundaries.', () => {
+    expect(between(3, 4, true)(4)).toBe(true)
+
+    expect(between(3, 4, true)(3)).toBe(true)
+  })
 
   test('should return true if target alphabet string is between ranges. ', () => {
     let target = 'd'
@@ -71,6 +79,13 @@ describe('between()', () => {
     expect(between('A', 'z')(target)).toBe(true)
   })
 
+  test('should return true if target alphabet string is one of the ranges. ',
+    () => {
+      expect(between('a', 'b', true)('b')).toBe(true)
+
+      expect(between('a', 'b', true)('a')).toBe(true)
+    })
+
   test('should return true if target Date is between ranges',
     () => {
       let myGraduation = new Date('October 13, 2014 11:13:00')
@@ -80,6 +95,17 @@ describe('between()', () => {
       let myBirthday = new Date('January 10, 2015 10:11:03')
 
       expect(between(myGraduation, myFirstJob)(myBirthday)).toBe(true)
+    })
+
+  test('should return true if target Date is one of the boundaries.',
+    () => {
+      let myGraduation = new Date('October 13, 2014 11:13:00')
+
+      let myFirstJob = new Date('September 1, 2015 11:13:00')
+
+      let myBirthday = new Date('September 1, 2015 11:13:00')
+
+      expect(between(myGraduation, myFirstJob, true)(myBirthday)).toBe(true)
     })
 
   test('should throw error if args are not a valid an alphabet character', () => {
