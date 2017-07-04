@@ -1,6 +1,6 @@
 {
   "name": "in-between",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "Test whether a number, english alphabet character or Date is between 2 others. ",
   "main": "index.js",
   "homepage": "https://github.com/alvarobernalg/in-between.git",
@@ -39,11 +39,14 @@
   "devDependencies": {
     "jest": "^20.0.4"
   },
-  "dependencies": {
-    "logical-operators": "0.0.2"
-  },
-  "standard":{
-    "global" : ["it", "expect", "describe", "test"]
+  "dependencies": {},
+  "standard": {
+    "global": [
+      "it",
+      "expect",
+      "describe",
+      "test"
+    ]
   },
   "reveal": "true"
 }

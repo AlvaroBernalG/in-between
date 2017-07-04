@@ -116,24 +116,25 @@ describe('between()', () => {
     expect(() => {
       between('💩', '💩')('💩')
     }).toThrow()
+    expect(() => {
+      between(-Infinity, '💩')('💩')
+    }).toThrow()
   })
 
   test('should throw error if args are not of the same type', () => {
     expect(() => {
-      between(1, 10)('sd')
+      between(1, 10)('s')
     }).toThrow()
 
     expect(() => {
-      between(1, '3')(32)
+      between(1, '3')(2)
     }).toThrow()
 
     expect(() => {
-      between(new Date(), '')('sd')
+      between(new Date(), 2)(2)
     }).toThrow()
 
-    expect(() => {
-      between(-Infinity, '💩')('💩')
-    }).toThrow()
+
   })
 
   test('should throw error if args are not number, string or Date',
