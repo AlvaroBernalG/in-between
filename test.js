@@ -1,14 +1,14 @@
 const between = require('./index.js')
 
 describe('between()', () => {
-  test('should be a higher order function.',
+  test('should be a higher order function',
   () => {
     const fn = between(100, 1000)
 
     expect(typeof fn === 'function').toBe(true)
   })
 
-  test('should return true if target number is between ranges.',
+  test('should return true if target number is between ranges',
     () => {
       const isBetween1And10 = between(1, 10)
 
@@ -122,6 +122,7 @@ describe('between()', () => {
   })
 
   test('should throw error if args are not of the same type', () => {
+
     expect(() => {
       between(1, 10)('s')
     }).toThrow()
@@ -134,10 +135,9 @@ describe('between()', () => {
       between(new Date(), 2)(2)
     }).toThrow()
 
-
   })
 
-  test('should throw error if args are not number, string or Date',
+  test('should throw error if args are not numbers, strings or Dates',
     () => {
       expect(() => {
         between(null, null)(null)

@@ -1,15 +1,16 @@
 # in-between 
 
-> Test whether a number, english  alphabet character or a date is between 2 others. 
+> Test whether a number, english alphabet character or a date is between 2 others. 
 
-[![Build Status](https://travis-ci.org/AlvaroBernalG/in-between.svg?branch=master)](https://travis-ci.org/AlvaroBernalG/in-between) [![npm version](https://badge.fury.io/js/in-between.svg)](https://badge.fury.io/js/in-between) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Build Status](https://travis-ci.org/AlvaroBernalG/in-between.svg?branch=master)](https://travis-ci.org/AlvaroBernalG/in-between) [![npm version](https://badge.fury.io/js/in-between.svg)](https://badge.fury.io/js/in-between) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) 
 
-Augmented version of [in-range](https://github.com/sindresorhus/in-range) made by [Sindre Sorhus](https://sindresorhus.com) with a more functional taste. 
+Augmented version of [in-range](https://github.com/sindresorhus/in-range) made by [Sindre Sorhus](https://sindresorhus.com) with a more functional taste
+
 ## Install
+
 ```
 $ npm install in-between
 ```
-
 
 ## Usage 
 With numbers: 
@@ -61,7 +62,7 @@ between(myGraduation, myFirstJob)(myBirthDay) //=> true
 
 ```
 
-You can also include boundaries:
+You can include the boundaries:
 
 ```js
 
@@ -71,13 +72,10 @@ between(3, 4, true)(3) //=> true
 
 between('a', 'b', true)('a') // => true
 
-
 ```
 
-
-
-
+## API
+between(number | string | date, number | string | date, boolean) => `lambda(number | string | date) => boolean`
 
 ## License
-
 MIT © [Alvaro Bernal](https://github.com/AlvaroBernalG/) 
