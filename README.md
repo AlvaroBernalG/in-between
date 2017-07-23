@@ -1,6 +1,6 @@
 # in-between 
 
-> Test whether a number, english alphabet character or a date is between 2 others. 
+> Test whether a number, english alphabet character or a date is between two others. 
 
 [![Build Status](https://travis-ci.org/AlvaroBernalG/in-between.svg?branch=master)](https://travis-ci.org/AlvaroBernalG/in-between) [![npm version](https://badge.fury.io/js/in-between.svg)](https://badge.fury.io/js/in-between) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) 
 
