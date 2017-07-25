@@ -1,6 +1,6 @@
 {
   "name": "in-between",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "Test whether a number, english alphabet character or Date is between two others. ",
   "main": "index.js",
   "homepage": "https://github.com/alvarobernalg/in-between.git",

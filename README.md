@@ -75,7 +75,7 @@ between('a', 'b', true)('a') // => true
 ```
 
 ## API
-between(number | string | date, number | string | date, boolean) => `lambda(number | string | date) => boolean`
+between(number | string | date, number | string | date, boolean) => `function(number | string | date) => boolean`
 
 ## License
 MIT © [Alvaro Bernal](https://github.com/AlvaroBernalG/) 
